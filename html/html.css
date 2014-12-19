@@ -24,6 +24,32 @@ body {
 	float: left;
 }
 
+/* Logo
+----------------------------------------------------------------- */
+
+.author {
+	width: 100%;
+	margin-top: 20px;
+	border-top: 1px solid #ccc;
+}
+
+.author-img {
+  border-radius: 12px;
+  margin-bottom: 10px;
+  width: 120px;
+  margin-right: 20px;
+  float: left;
+}
+
+blockquote {
+  color: #918D8D;
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+}
+
+
+
 
 /* Fonts
 ----------------------------------------------------------------- */
