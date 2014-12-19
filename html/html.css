@@ -42,6 +42,7 @@ body {
 }
 
 blockquote {
+  margin-top: 20px;
   color: #918D8D;
   font-size: 14px;
   line-height: 20px;
