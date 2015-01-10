@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+}
+
+#styleguide-menu {
+  text-transform: uppercase;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #FFF;
+  color: #585858;
+  font-size: 1rem;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+#styleguide-menu a {
+  color: #EFEFEF;
+  text-decoration: none;
+}
+
+#styleguide-menu:hover a {
+  color: gray;
+}
+
+/* General
+------------------------------------------------ */
+
+#styleguide-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  font-size: 0.8rem;
+  background-color: #FFF;
+}
+
+#styleguide-menu ul ul {
+  text-transform: none;
+  text-transform: capitalize;
+}
+
+/* First Level
+------------------------------------------------ */
+
+#styleguide-menu > ul {
+}
+
+#styleguide-menu > ul > li {
+  display: inline-block;
+  padding: 7px 10px;
+  border-right: 1px solid #EFEFEF;
+  position: relative;
+}
+
+/* Second Level
+------------------------------------------------ */
+
+#styleguide-menu > ul > li > ul {
+  position: absolute;
+  z-index: 90000;
+  top: 34px;
+  left: -1px;
+  width: 250px;
+  border: 1px solid #e3e3e3;
+  display: none;
+}
+
+#styleguide-menu > ul > li:hover > ul {
+  display: block;
+}
+
+#styleguide-menu > ul li.parent ul a {
+  display: inline-block;
+  color: #21A3E7;
+  padding: 8px;
+}
+
+#styleguide-menu > ul ul li.parent > a {
+  font-weight: bold;
+  color: #585858;
+}
