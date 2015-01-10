@@ -1,113 +1,219 @@
-{{ doctype }}
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>{{ title }}</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'> </link>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<html>
+<head>
+  <title>O'Reilly Styleguide</title>
+  
+  <link rel="stylesheet" type="text/css" href="/css/styleguide.css">
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/underscore.js"></script>
+  <script type="text/javascript" src="/js/backbone.js"></script>
+  <script type="text/javascript" src="/js/styleguide.js"></script>
 
-
-<!-- DO WE REALLY NEED ALL OF THESE? -->
-<link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/ipython/css/style.min.css" type="text/css"/>
-<link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/bootstrap/css/bootstrap.min.css" media="screen"/>
-<link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/bootstrap/css/bootstrap-responsive.min.css"/>
-<link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/codemirror/lib/codemirror.css"/>
-<link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/ipython/css/codemirror-ipython.css"/>
-<link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/css/style.css"/>
-<script src="http://cdn.oreilly.com/tools/ipython/codemirror/lib/codemirror.js" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/codemirror/lib/util/loadmode.js" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/codemirror/lib/util/multiplex.js" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/codemirror/mode/python/python.js" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/jquery/js/jquery-1.7.2.min.js" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/jquery/js/jquery-ui.min.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/namespace.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/utils.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/events.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/kernel.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/outputarea.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/cell.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/codecell.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/config.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/completer.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/tooltip.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://cdn.oreilly.com/tools/ipython/ipython/js/celltoolbar.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-
-  <!-- include the plugin -->
+  <!-- THIS SHOULD OBVISOUSLY NOT BE HERE. Move to bundled ipython plugin. -->
   <script type="text/javascript">
-    if(!window.atlasplugins) window.atlasplugins = {}
-    atlasplugins.ipythonServer = "ws://jupyter-kernel.odewahn.com:8888";
+    window.CodeMirrorConfig = {
+      viewportMargin: 'Infinity'
+    }
   </script>
 
-  <link rel="stylesheet" type="text/css" href="https://d2uogd9jz9k9zm.cloudfront.net/ipython-0.0.2.css"> </link>
-  <script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/ipython-0.0.2.min.js"> </script>
+  <link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/ipython/css/style.min.css" type="text/css"></link>
+  <link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/codemirror/lib/codemirror.css"></link>
+  <link rel="stylesheet" href="http://cdn.oreilly.com/tools/ipython/css/style.css"></link>
+  <script src="http://cdn.oreilly.com/tools/ipython/codemirror/lib/codemirror.js" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/codemirror/lib/util/loadmode.js" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/codemirror/lib/util/multiplex.js" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/codemirror/mode/python/python.js" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/jquery/js/jquery-1.7.2.min.js" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/jquery/js/jquery-ui.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/namespace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/utils.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/events.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/kernel.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/outputarea.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/cell.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/codecell.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/config.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/completer.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/tooltip.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://cdn.oreilly.com/tools/ipython/ipython/js/celltoolbar.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+
+  <!-- For interactive video template -->
+  <script type="text/javascript" src="/js/jquery.scrolltofixed.js"></script>
+  <script type="text/javascript" src="/js/codemirror-go.js"></script>
+  <script type="text/javascript" src="/js/interactive-annotations.js"></script>
+  <script type="text/javascript" src="/js/interactive-app.js"></script>
+  <script src="http://cdnapi.kaltura.com/p/1649321/sp/164932100/embedIframeJs/uiconf_id/26685231/partner_id/1649321"></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/oreilly.css"></link>
 
 
-    <script type="text/javascript">
-      $(function() {
-        $("#link-toc").click(function(e) {
-          e.preventDefault();
-          $("#sidebar").toggle();
-        });
-      });
-    </script>
-    {{ header }}
-  </head>
-  <body data-type="book">
-    {% if github_url %}
-       <a href="{{ github_url }}">
-          <img src="https://s3.amazonaws.com/orm-atlas-media/fork-on-github.png" class="fork-on-github"/>
-       </a>
-    {% endif %}
-    <header>
-      <div id="buttons">
-        <a href="#" id="link-toc">☰</a>
-      </div>
-      <img class="logo" src="http://orm-logo-service.herokuapp.com/{{ practice-area }}/logo.svg"/>
-      <h1>{{ title }}</h1>
-      </header>
-      <div id="flex-box">
-        <section id="sidebar">
-          {{ toc }}
-        </section>
-        <section id="content">
-          <section id="content-body">
+</head>
+<body>
 	
-	       <table style="border: none; margin-top: 20px">
-		 <tr>
-		   <td>
 	
-		<a href="https://twitter.com/share" class="twitter-share-button" data-via="odewahn">Tweet</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-		</td>
-		<td>
-		
-             {% if twitter_user %}
+	
+	<div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+  <header id="styleguide-menu"><ul><li class="parent"><a href="#">atoms</a><ul><li class="parent"><a href="#">meta</a><ul><li><a href="00-atoms/00-meta/_00-head.html" class="styleguide-link" data-link="00-atoms/00-meta/_00-head.html">head</a></li><li><a href="00-atoms/00-meta/_01-foot.html" class="styleguide-link" data-link="00-atoms/00-meta/_01-foot.html">foot</a></li></ul></li><li class="parent"><a href="#">global</a><ul><li><a href="00-atoms/01-global/00-colors.html" class="styleguide-link" data-link="00-atoms/01-global/00-colors.html">colors</a></li><li><a href="00-atoms/01-global/01-fonts.html" class="styleguide-link" data-link="00-atoms/01-global/01-fonts.html">fonts</a></li><li><a href="00-atoms/01-global/02-animations.html" class="styleguide-link" data-link="00-atoms/01-global/02-animations.html">animations</a></li><li><a href="00-atoms/01-global/03-visibility.html" class="styleguide-link" data-link="00-atoms/01-global/03-visibility.html">visibility</a></li></ul></li><li class="parent"><a href="#">text</a><ul><li><a href="00-atoms/02-text/00-headings.html" class="styleguide-link" data-link="00-atoms/02-text/00-headings.html">headings</a></li><li><a href="00-atoms/02-text/01-paragraph.html" class="styleguide-link" data-link="00-atoms/02-text/01-paragraph.html">paragraph</a></li><li><a href="00-atoms/02-text/02-blockquote.html" class="styleguide-link" data-link="00-atoms/02-text/02-blockquote.html">blockquote</a></li><li><a href="00-atoms/02-text/03-inline-elements.html" class="styleguide-link" data-link="00-atoms/02-text/03-inline-elements.html">inline elements</a></li><li><a href="00-atoms/02-text/04-time.html" class="styleguide-link" data-link="00-atoms/02-text/04-time.html">time</a></li><li><a href="00-atoms/02-text/05-preformatted-text.html" class="styleguide-link" data-link="00-atoms/02-text/05-preformatted-text.html">preformatted text</a></li><li><a href="00-atoms/02-text/06-hr.html" class="styleguide-link" data-link="00-atoms/02-text/06-hr.html">hr</a></li></ul></li><li class="parent"><a href="#">lists</a><ul><li><a href="00-atoms/03-lists/00-unordered.html" class="styleguide-link" data-link="00-atoms/03-lists/00-unordered.html">unordered</a></li><li><a href="00-atoms/03-lists/01-ordered.html" class="styleguide-link" data-link="00-atoms/03-lists/01-ordered.html">ordered</a></li><li><a href="00-atoms/03-lists/02-definition.html" class="styleguide-link" data-link="00-atoms/03-lists/02-definition.html">definition</a></li></ul></li><li class="parent"><a href="#">images</a><ul><li><a href="00-atoms/04-images/00-logo.html" class="styleguide-link" data-link="00-atoms/04-images/00-logo.html">logo</a></li><li><a href="00-atoms/04-images/01-landscape-4x3.html" class="styleguide-link" data-link="00-atoms/04-images/01-landscape-4x3.html">landscape 4x3</a></li><li><a href="00-atoms/04-images/02-landscape-16x9.html" class="styleguide-link" data-link="00-atoms/04-images/02-landscape-16x9.html">landscape 16x9</a></li><li><a href="00-atoms/04-images/03-square.html" class="styleguide-link" data-link="00-atoms/04-images/03-square.html">square</a></li><li><a href="00-atoms/04-images/04-avatar.html" class="styleguide-link" data-link="00-atoms/04-images/04-avatar.html">avatar</a></li><li><a href="00-atoms/04-images/05-icons.html" class="styleguide-link" data-link="00-atoms/04-images/05-icons.html">icons</a></li><li><a href="00-atoms/04-images/06-loading-icon.html" class="styleguide-link" data-link="00-atoms/04-images/06-loading-icon.html">loading icon</a></li><li><a href="00-atoms/04-images/07-favicon.html" class="styleguide-link" data-link="00-atoms/04-images/07-favicon.html">favicon</a></li><li><a href="00-atoms/04-images/08-vertical.html" class="styleguide-link" data-link="00-atoms/04-images/08-vertical.html">vertical</a></li></ul></li><li class="parent"><a href="#">forms</a><ul><li><a href="00-atoms/05-forms/00-text-fields.html" class="styleguide-link" data-link="00-atoms/05-forms/00-text-fields.html">text fields</a></li><li><a href="00-atoms/05-forms/01-select-menu.html" class="styleguide-link" data-link="00-atoms/05-forms/01-select-menu.html">select menu</a></li><li><a href="00-atoms/05-forms/02-checkbox.html" class="styleguide-link" data-link="00-atoms/05-forms/02-checkbox.html">checkbox</a></li><li><a href="00-atoms/05-forms/03-radio-buttons.html" class="styleguide-link" data-link="00-atoms/05-forms/03-radio-buttons.html">radio buttons</a></li><li><a href="00-atoms/05-forms/04-html5-inputs.html" class="styleguide-link" data-link="00-atoms/05-forms/04-html5-inputs.html">html5 inputs</a></li></ul></li><li class="parent"><a href="#">buttons</a><ul><li><a href="00-atoms/06-buttons/00-buttons.html" class="styleguide-link" data-link="00-atoms/06-buttons/00-buttons.html">buttons</a></li></ul></li><li class="parent"><a href="#">tables</a><ul><li><a href="00-atoms/07-tables/00-table.html" class="styleguide-link" data-link="00-atoms/07-tables/00-table.html">table</a></li></ul></li><li class="parent"><a href="#">media</a><ul><li><a href="00-atoms/08-media/_00-video.html" class="styleguide-link" data-link="00-atoms/08-media/_00-video.html">video</a></li><li><a href="00-atoms/08-media/_01-audio.html" class="styleguide-link" data-link="00-atoms/08-media/_01-audio.html">audio</a></li></ul></li><li class="parent"><a href="#">icons</a><ul><li><a href="00-atoms/09-icons/00-magnifying-glass.html" class="styleguide-link" data-link="00-atoms/09-icons/00-magnifying-glass.html">magnifying glass</a></li><li><a href="00-atoms/09-icons/01-arrow.html" class="styleguide-link" data-link="00-atoms/09-icons/01-arrow.html">arrow</a></li><li><a href="00-atoms/09-icons/02-plus.html" class="styleguide-link" data-link="00-atoms/09-icons/02-plus.html">plus</a></li><li><a href="00-atoms/09-icons/03-facebook.html" class="styleguide-link" data-link="00-atoms/09-icons/03-facebook.html">facebook</a></li><li><a href="00-atoms/09-icons/04-twitter.html" class="styleguide-link" data-link="00-atoms/09-icons/04-twitter.html">twitter</a></li><li><a href="00-atoms/09-icons/05-youtube.html" class="styleguide-link" data-link="00-atoms/09-icons/05-youtube.html">youtube</a></li><li><a href="00-atoms/09-icons/06-google.html" class="styleguide-link" data-link="00-atoms/09-icons/06-google.html">google</a></li><li><a href="00-atoms/09-icons/07-minus.html" class="styleguide-link" data-link="00-atoms/09-icons/07-minus.html">minus</a></li><li><a href="00-atoms/09-icons/08-map-marker.html" class="styleguide-link" data-link="00-atoms/09-icons/08-map-marker.html">map marker</a></li><li><a href="00-atoms/09-icons/09-spectrum.html" class="styleguide-link" data-link="00-atoms/09-icons/09-spectrum.html">spectrum</a></li><li><a href="00-atoms/09-icons/10-connections.html" class="styleguide-link" data-link="00-atoms/09-icons/10-connections.html">connections</a></li><li><a href="00-atoms/09-icons/11-menu.html" class="styleguide-link" data-link="00-atoms/09-icons/11-menu.html">menu</a></li><li><a href="00-atoms/09-icons/12-x.html" class="styleguide-link" data-link="00-atoms/09-icons/12-x.html">x</a></li><li><a href="00-atoms/09-icons/13-linkedin.html" class="styleguide-link" data-link="00-atoms/09-icons/13-linkedin.html">linkedin</a></li><li><a href="00-atoms/09-icons/14-email.html" class="styleguide-link" data-link="00-atoms/09-icons/14-email.html">email</a></li><li><a href="00-atoms/09-icons/15-volume.html" class="styleguide-link" data-link="00-atoms/09-icons/15-volume.html">volume</a></li><li><a href="00-atoms/09-icons/16-arrow-left.html" class="styleguide-link" data-link="00-atoms/09-icons/16-arrow-left.html">arrow left</a></li><li><a href="00-atoms/09-icons/17-rss.html" class="styleguide-link" data-link="00-atoms/09-icons/17-rss.html">rss</a></li><li><a href="00-atoms/09-icons/18-odot.html" class="styleguide-link" data-link="00-atoms/09-icons/18-odot.html">odot</a></li><li><a href="00-atoms/09-icons/19-star.html" class="styleguide-link" data-link="00-atoms/09-icons/19-star.html">star</a></li></ul></li></ul></li><li class="parent"><a href="#">molecules</a><ul><li class="parent"><a href="#">text</a><ul><li><a href="01-molecules/00-text/00-byline.html" class="styleguide-link" data-link="01-molecules/00-text/00-byline.html">byline</a></li><li><a href="01-molecules/00-text/01-address.html" class="styleguide-link" data-link="01-molecules/00-text/01-address.html">address</a></li><li><a href="01-molecules/00-text/02-heading-group.html" class="styleguide-link" data-link="01-molecules/00-text/02-heading-group.html">heading group</a></li><li><a href="01-molecules/00-text/03-blockquote-with-citation.html" class="styleguide-link" data-link="01-molecules/00-text/03-blockquote-with-citation.html">blockquote with citation</a></li><li><a href="01-molecules/00-text/04-intro-text.html" class="styleguide-link" data-link="01-molecules/00-text/04-intro-text.html">intro text</a></li><li><a href="01-molecules/00-text/05-kicker.html" class="styleguide-link" data-link="01-molecules/00-text/05-kicker.html">kicker</a></li><li><a href="01-molecules/00-text/06-more-link.html" class="styleguide-link" data-link="01-molecules/00-text/06-more-link.html">more link</a></li><li><a href="01-molecules/00-text/07-button.html" class="styleguide-link" data-link="01-molecules/00-text/07-button.html">button</a></li><li><a href="01-molecules/00-text/08-breadcrumb.html" class="styleguide-link" data-link="01-molecules/00-text/08-breadcrumb.html">breadcrumb</a></li><li><a href="01-molecules/00-text/09-flag.html" class="styleguide-link" data-link="01-molecules/00-text/09-flag.html">flag</a></li></ul></li><li class="parent"><a href="#">layout</a><ul><li><a href="01-molecules/01-layout/00-one-up.html" class="styleguide-link" data-link="01-molecules/01-layout/00-one-up.html">one up</a></li><li><a href="01-molecules/01-layout/01-two-up.html" class="styleguide-link" data-link="01-molecules/01-layout/01-two-up.html">two up</a></li><li><a href="01-molecules/01-layout/02-three-up.html" class="styleguide-link" data-link="01-molecules/01-layout/02-three-up.html">three up</a></li><li><a href="01-molecules/01-layout/03-four-up.html" class="styleguide-link" data-link="01-molecules/01-layout/03-four-up.html">four up</a></li></ul></li><li class="parent"><a href="#">blocks</a><ul><li><a href="01-molecules/02-blocks/00-media-block.html" class="styleguide-link" data-link="01-molecules/02-blocks/00-media-block.html">media block</a></li><li><a href="01-molecules/02-blocks/01-block-headline-byline.html" class="styleguide-link" data-link="01-molecules/02-blocks/01-block-headline-byline.html">block headline byline</a></li><li><a href="01-molecules/02-blocks/02-block-hero.html" class="styleguide-link" data-link="01-molecules/02-blocks/02-block-hero.html">block hero</a></li><li><a href="01-molecules/02-blocks/03-block-thumb-headline.html" class="styleguide-link" data-link="01-molecules/02-blocks/03-block-thumb-headline.html">block thumb headline</a></li><li><a href="01-molecules/02-blocks/04-block-headline.html" class="styleguide-link" data-link="01-molecules/02-blocks/04-block-headline.html">block headline</a></li><li><a href="01-molecules/02-blocks/05-block-inset.html" class="styleguide-link" data-link="01-molecules/02-blocks/05-block-inset.html">block inset</a></li><li><a href="01-molecules/02-blocks/06-number-block.html" class="styleguide-link" data-link="01-molecules/02-blocks/06-number-block.html">number block</a></li><li><a href="01-molecules/02-blocks/07-contributor-block.html" class="styleguide-link" data-link="01-molecules/02-blocks/07-contributor-block.html">contributor block</a></li><li><a href="01-molecules/02-blocks/08-contributor-block-featured.html" class="styleguide-link" data-link="01-molecules/02-blocks/08-contributor-block-featured.html">contributor block featured</a></li><li><a href="01-molecules/02-blocks/09-session-block.html" class="styleguide-link" data-link="01-molecules/02-blocks/09-session-block.html">session block</a></li><li><a href="01-molecules/02-blocks/10-conference-featured-block.html" class="styleguide-link" data-link="01-molecules/02-blocks/10-conference-featured-block.html">conference featured block</a></li><li><a href="01-molecules/02-blocks/11-webcasts-block.html" class="styleguide-link" data-link="01-molecules/02-blocks/11-webcasts-block.html">webcasts block</a></li><li><a href="01-molecules/02-blocks/12-block-headline-dek.html" class="styleguide-link" data-link="01-molecules/02-blocks/12-block-headline-dek.html">block headline dek</a></li><li><a href="01-molecules/02-blocks/13-block-author.html" class="styleguide-link" data-link="01-molecules/02-blocks/13-block-author.html">block author</a></li><li><a href="01-molecules/02-blocks/15-block-quote.html" class="styleguide-link" data-link="01-molecules/02-blocks/15-block-quote.html">block quote</a></li><li><a href="01-molecules/02-blocks/16-block-topic.html" class="styleguide-link" data-link="01-molecules/02-blocks/16-block-topic.html">block topic</a></li><li><a href="01-molecules/02-blocks/17-block-resources.html" class="styleguide-link" data-link="01-molecules/02-blocks/17-block-resources.html">block resources</a></li><li><a href="01-molecules/02-blocks/18-block-speaker.html" class="styleguide-link" data-link="01-molecules/02-blocks/18-block-speaker.html">block speaker</a></li><li><a href="01-molecules/02-blocks/19-block-search-result.html" class="styleguide-link" data-link="01-molecules/02-blocks/19-block-search-result.html">block search result</a></li></ul></li><li class="parent"><a href="#">media</a><ul><li><a href="01-molecules/03-media/00-figure-with-caption.html" class="styleguide-link" data-link="01-molecules/03-media/00-figure-with-caption.html">figure with caption</a></li></ul></li><li class="parent"><a href="#">forms</a><ul><li><a href="01-molecules/04-forms/00-search.html" class="styleguide-link" data-link="01-molecules/04-forms/00-search.html">search</a></li><li><a href="01-molecules/04-forms/01-comment-form.html" class="styleguide-link" data-link="01-molecules/04-forms/01-comment-form.html">comment form</a></li><li><a href="01-molecules/04-forms/02-newsletter.html" class="styleguide-link" data-link="01-molecules/04-forms/02-newsletter.html">newsletter</a></li><li><a href="01-molecules/04-forms/03-search-secondary.html" class="styleguide-link" data-link="01-molecules/04-forms/03-search-secondary.html">search secondary</a></li><li><a href="01-molecules/04-forms/04-follow-topic.html" class="styleguide-link" data-link="01-molecules/04-forms/04-follow-topic.html">follow topic</a></li></ul></li><li class="parent"><a href="#">navigation</a><ul><li><a href="01-molecules/05-navigation/00-primary-nav.html" class="styleguide-link" data-link="01-molecules/05-navigation/00-primary-nav.html">primary nav</a></li><li><a href="01-molecules/05-navigation/01-footer-nav.html" class="styleguide-link" data-link="01-molecules/05-navigation/01-footer-nav.html">footer nav</a></li><li><a href="01-molecules/05-navigation/02-secondary-nav.html" class="styleguide-link" data-link="01-molecules/05-navigation/02-secondary-nav.html">secondary nav</a></li><li><a href="01-molecules/05-navigation/03-pagination.html" class="styleguide-link" data-link="01-molecules/05-navigation/03-pagination.html">pagination</a></li><li><a href="01-molecules/05-navigation/04-tabs.html" class="styleguide-link" data-link="01-molecules/05-navigation/04-tabs.html">tabs</a></li><li><a href="01-molecules/05-navigation/05-jump-box.html" class="styleguide-link" data-link="01-molecules/05-navigation/05-jump-box.html">jump box</a></li></ul></li><li class="parent"><a href="#">components</a><ul><li><a href="01-molecules/06-components/00-social-share.html" class="styleguide-link" data-link="01-molecules/06-components/00-social-share.html">social share</a></li><li><a href="01-molecules/06-components/01-accordion.html" class="styleguide-link" data-link="01-molecules/06-components/01-accordion.html">accordion</a></li><li><a href="01-molecules/06-components/02-single-comment.html" class="styleguide-link" data-link="01-molecules/06-components/02-single-comment.html">single comment</a></li><li><a href="01-molecules/06-components/03-horiz-scroll-list.html" class="styleguide-link" data-link="01-molecules/06-components/03-horiz-scroll-list.html">horiz scroll list</a></li><li><a href="01-molecules/06-components/04-follow-bar.html" class="styleguide-link" data-link="01-molecules/06-components/04-follow-bar.html">follow bar</a></li></ul></li><li class="parent"><a href="#">messaging</a><ul><li><a href="01-molecules/07-messaging/00-alert.html" class="styleguide-link" data-link="01-molecules/07-messaging/00-alert.html">alert</a></li></ul></li></ul></li><li class="parent"><a href="#">organisms</a><ul><li class="parent"><a href="#">global</a><ul><li><a href="02-organisms/00-global/00-header.html" class="styleguide-link" data-link="02-organisms/00-global/00-header.html">header</a></li><li><a href="02-organisms/00-global/01-footer.html" class="styleguide-link" data-link="02-organisms/00-global/01-footer.html">footer</a></li></ul></li><li class="parent"><a href="#">article</a><ul><li><a href="02-organisms/01-article/00-article-body.html" class="styleguide-link" data-link="02-organisms/01-article/00-article-body.html">article body</a></li><li><a href="02-organisms/01-article/01-article-header.html" class="styleguide-link" data-link="02-organisms/01-article/01-article-header.html">article header</a></li><li><a href="02-organisms/01-article/02-article-up-next.html" class="styleguide-link" data-link="02-organisms/01-article/02-article-up-next.html">article up next</a></li><li><a href="02-organisms/01-article/03-aside-post-list.html" class="styleguide-link" data-link="02-organisms/01-article/03-aside-post-list.html">aside post list</a></li><li><a href="02-organisms/01-article/04-aside-block-thumb.html" class="styleguide-link" data-link="02-organisms/01-article/04-aside-block-thumb.html">aside block thumb</a></li><li><a href="02-organisms/01-article/05-article-recirc.html" class="styleguide-link" data-link="02-organisms/01-article/05-article-recirc.html">article recirc</a></li><li><a href="02-organisms/01-article/06-about-header.html" class="styleguide-link" data-link="02-organisms/01-article/06-about-header.html">about header</a></li><li><a href="02-organisms/01-article/07-about-body.html" class="styleguide-link" data-link="02-organisms/01-article/07-about-body.html">about body</a></li><li><a href="02-organisms/01-article/08-article-body-data.html" class="styleguide-link" data-link="02-organisms/01-article/08-article-body-data.html">article body data</a></li><li><a href="02-organisms/01-article/09-article-body-python.html" class="styleguide-link" data-link="02-organisms/01-article/09-article-body-python.html">article body python</a></li><li><a href="02-organisms/01-article/10-article-body-plot.html" class="styleguide-link" data-link="02-organisms/01-article/10-article-body-plot.html">article body plot</a></li><li><a href="02-organisms/01-article/11-article-body-video.html" class="styleguide-link" data-link="02-organisms/01-article/11-article-body-video.html">article body video</a></li><li><a href="02-organisms/01-article/12-article-body-ost.html" class="styleguide-link" data-link="02-organisms/01-article/12-article-body-ost.html">article body ost</a></li></ul></li><li class="parent"><a href="#">comments</a><ul><li><a href="02-organisms/02-comments/00-comment-thread.html" class="styleguide-link" data-link="02-organisms/02-comments/00-comment-thread.html">comment thread</a></li></ul></li><li class="parent"><a href="#">sections</a><ul><li><a href="02-organisms/03-sections/00-four-short-links.html" class="styleguide-link" data-link="02-organisms/03-sections/00-four-short-links.html">four short links</a></li><li><a href="02-organisms/03-sections/01-featured-grid.html" class="styleguide-link" data-link="02-organisms/03-sections/01-featured-grid.html">featured grid</a></li><li><a href="02-organisms/03-sections/02-essentials.html" class="styleguide-link" data-link="02-organisms/03-sections/02-essentials.html">essentials</a></li><li><a href="02-organisms/03-sections/03-contributors.html" class="styleguide-link" data-link="02-organisms/03-sections/03-contributors.html">contributors</a></li><li><a href="02-organisms/03-sections/04-related-topics.html" class="styleguide-link" data-link="02-organisms/03-sections/04-related-topics.html">related topics</a></li><li><a href="02-organisms/03-sections/05-quote.html" class="styleguide-link" data-link="02-organisms/03-sections/05-quote.html">quote</a></li><li><a href="02-organisms/03-sections/06-themes.html" class="styleguide-link" data-link="02-organisms/03-sections/06-themes.html">themes</a></li><li><a href="02-organisms/03-sections/07-conference.html" class="styleguide-link" data-link="02-organisms/03-sections/07-conference.html">conference</a></li><li><a href="02-organisms/03-sections/08-featured-sessions.html" class="styleguide-link" data-link="02-organisms/03-sections/08-featured-sessions.html">featured sessions</a></li><li><a href="02-organisms/03-sections/09-resources.html" class="styleguide-link" data-link="02-organisms/03-sections/09-resources.html">resources</a></li><li><a href="02-organisms/03-sections/10-more-conferences.html" class="styleguide-link" data-link="02-organisms/03-sections/10-more-conferences.html">more conferences</a></li><li><a href="02-organisms/03-sections/11-webcasts.html" class="styleguide-link" data-link="02-organisms/03-sections/11-webcasts.html">webcasts</a></li><li><a href="02-organisms/03-sections/12-events.html" class="styleguide-link" data-link="02-organisms/03-sections/12-events.html">events</a></li><li><a href="02-organisms/03-sections/13-events-archive.html" class="styleguide-link" data-link="02-organisms/03-sections/13-events-archive.html">events archive</a></li><li><a href="02-organisms/03-sections/14-feature-blocks.html" class="styleguide-link" data-link="02-organisms/03-sections/14-feature-blocks.html">feature blocks</a></li><li><a href="02-organisms/03-sections/15-conference-featured.html" class="styleguide-link" data-link="02-organisms/03-sections/15-conference-featured.html">conference featured</a></li><li><a href="02-organisms/03-sections/16-topic-blocks.html" class="styleguide-link" data-link="02-organisms/03-sections/16-topic-blocks.html">topic blocks</a></li><li><a href="02-organisms/03-sections/17-sponsors.html" class="styleguide-link" data-link="02-organisms/03-sections/17-sponsors.html">sponsors</a></li><li><a href="02-organisms/03-sections/18-speaker-groups.html" class="styleguide-link" data-link="02-organisms/03-sections/18-speaker-groups.html">speaker groups</a></li><li><a href="02-organisms/03-sections/19-more-event-blocks.html" class="styleguide-link" data-link="02-organisms/03-sections/19-more-event-blocks.html">more event blocks</a></li><li><a href="02-organisms/03-sections/20-robust-search.html" class="styleguide-link" data-link="02-organisms/03-sections/20-robust-search.html">robust search</a></li></ul></li></ul></li><li class="parent"><a href="#">templates</a><ul><li><a href="03-templates/00-home.html" class="styleguide-link" data-link="03-templates/00-home.html">home</a></li><li><a href="03-templates/01-ideas.html" class="styleguide-link" data-link="03-templates/01-ideas.html">ideas</a></li><li><a href="03-templates/02-signals.html" class="styleguide-link" data-link="03-templates/02-signals.html">signals</a></li><li><a href="03-templates/03-events.html" class="styleguide-link" data-link="03-templates/03-events.html">events</a></li><li><a href="03-templates/04-content.html" class="styleguide-link" data-link="03-templates/04-content.html">content</a></li><li><a href="03-templates/05-learn-home.html" class="styleguide-link" data-link="03-templates/05-learn-home.html">learn home</a></li><li><a href="03-templates/06-events-individual.html" class="styleguide-link" data-link="03-templates/06-events-individual.html">events individual</a></li><li><a href="03-templates/07-events-speakers.html" class="styleguide-link" data-link="03-templates/07-events-speakers.html">events speakers</a></li><li><a href="03-templates/08-events-series.html" class="styleguide-link" data-link="03-templates/08-events-series.html">events series</a></li><li><a href="03-templates/09-events-topic.html" class="styleguide-link" data-link="03-templates/09-events-topic.html">events topic</a></li><li><a href="03-templates/10-utility-about.html" class="styleguide-link" data-link="03-templates/10-utility-about.html">utility about</a></li><li><a href="03-templates/11-utility-search.html" class="styleguide-link" data-link="03-templates/11-utility-search.html">utility search</a></li></ul></li><li class="parent"><a href="#">pages</a><ul><li><a href="04-pages/00-home.html" class="styleguide-link" data-link="04-pages/00-home.html">home</a></li><li><a href="04-pages/01-ideas.html" class="styleguide-link" data-link="04-pages/01-ideas.html">ideas</a></li><li><a href="04-pages/02-signals.html" class="styleguide-link" data-link="04-pages/02-signals.html">signals</a></li><li><a href="04-pages/03-events.html" class="styleguide-link" data-link="04-pages/03-events.html">events</a></li><li><a href="04-pages/04-content.html" class="styleguide-link" data-link="04-pages/04-content.html">content</a></li><li><a href="04-pages/05-learn-home.html" class="styleguide-link" data-link="04-pages/05-learn-home.html">learn home</a></li><li><a href="04-pages/06-events-individual.html" class="styleguide-link" data-link="04-pages/06-events-individual.html">events individual</a></li><li><a href="04-pages/07-events-speakers.html" class="styleguide-link" data-link="04-pages/07-events-speakers.html">events speakers</a></li><li><a href="04-pages/08-events-series.html" class="styleguide-link" data-link="04-pages/08-events-series.html">events series</a></li><li><a href="04-pages/09-events-topic.html" class="styleguide-link" data-link="04-pages/09-events-topic.html">events topic</a></li><li><a href="04-pages/10-utility-about.html" class="styleguide-link" data-link="04-pages/10-utility-about.html">utility about</a></li><li><a href="04-pages/11-utility-search.html" class="styleguide-link" data-link="04-pages/11-utility-search.html">utility search</a></li><li><a href="04-pages/12-content-data.html" class="styleguide-link" data-link="04-pages/12-content-data.html">content data</a></li><li><a href="04-pages/13-content-python.html" class="styleguide-link" data-link="04-pages/13-content-python.html">content python</a></li><li><a href="04-pages/14-content-plot.html" class="styleguide-link" data-link="04-pages/14-content-plot.html">content plot</a></li><li><a href="04-pages/15-content-video.html" class="styleguide-link" data-link="04-pages/15-content-video.html">content video</a></li><li><a href="04-pages/16-content-ost.html" class="styleguide-link" data-link="04-pages/16-content-ost.html">content ost</a></li></ul></li></ul></header>
+  <div id="styleguide-content"><div class="page page-body" id="page">
+  <div role="main">
+    <article class="article">
+      <div class="page-top">
+<header class="a-header ">
+  <div class="lc">
+    <div class="a-inner">
+      <div class="a-text">
+<div class="flag flag--small t-bkg--before"><span>Data</span></div>
+        <h1 class="a-title t-c">An illustrated introduction to the t-SNE algorithm</h1>
+      </div> <!-- /.a-text -->
+      <div class="a-meta">
+<div class="byline">by <span><a href="">Cyrille Rossant</a></span></div><time class="date" datetime="2013-04-06T12:32+00:00">January 1st, 2015</time>      </div> <!-- /.a-meta -->
+    </div> <!-- /.a-inner -->
+  </div> <!-- /.lc -->
+</header> <!-- /.page-header -->
+      </div> <!-- /.page-top -->
+      <div class="a-content">
+        <div class="lc lc--no-top-btm">
+          <div class="a-body">
 
-		<a href="https://twitter.com/{{ twitter_user }}" class="twitter-follow-button" data-show-count="false">Follow</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-	      {% endif %}
+<div class="text">
 
-                </td>
+{{ content }}
 
-                <td>
-	           {% if github_user and github_url %}
-	     	      <iframe src="http://ghbtns.com/github-btn.html?user={{github_user}}&repo={{github_url}}&type=watch"
-		         allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
-	           {% endif %}
-	        </td>
-              </tr>
-            </table>
-            {{ content }}
-            <ul class="page-navigation">
-              <li>{{ prev_link }}</li>
-              <li>{{ next_link }}</li>
-            </ul>
-          </section>
-        </section>
-      </div>
-  </body>
-</html>
+</div>
+
+
+
+            </div> <!-- /.a-body -->
+          <footer class="a-footer">
+            <div class="a-meta narrow">
+<div class="social-share ">
+	<ul class="ss-list">
+    <li>
+      <a class="icon rounded s-facebook" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="47 84.6 37.6 67.7" enable-background="new 47 84.6 37.6 67.7"><path fill="#fff" d="M84.6 96.4H73.9c-1.3 0-2.7 1.7-2.7 3.9v7.7h13.4v11.1H71.2v33.2H58.5v-33.2H47V108h11.5v-6.5c0-9.3 6.5-16.9 15.4-16.9h10.7v11.8z"></path></svg></a>
+      <div class="s-count">215</div>
+    </li>
+    <li>
+      <a class="icon rounded s-twitter" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="57.4 46.6 119.2 96.9" enable-background="new 57.4 46.6 119.2 96.9"><path fill="#fff" d="M176.6 58.1c-4.4 1.9-9.1 3.3-14.1 3.9 5-3 8.9-7.8 10.8-13.6-4.7 2.8-9.9 4.8-15.5 6-4.4-4.8-10.8-7.7-17.8-7.7-13.5 0-24.5 11-24.5 24.5 0 1.9.2 3.8.6 5.6-20.3-1-38.4-10.8-50.4-25.6-2.1 3.6-3.3 7.8-3.3 12.3 0 8.5 4.3 15.9 10.9 20.4-4-.1-7.8-1.2-11.1-3.1v.3c0 11.9 8.5 21.8 19.6 24-2 .6-4.2.9-6.4.9-1.6 0-3.1-.2-4.6-.5 3.1 9.7 12.1 16.8 22.8 17-8.4 6.6-18.9 10.5-30.4 10.5-2 0-3.9-.1-5.9-.4 10.8 6.9 23.7 11 37.5 11 45 0 69.6-37.3 69.6-69.6 0-1.1 0-2.1-.1-3.2 4.9-3.5 9.1-7.8 12.3-12.7z"></path></svg></a>
+      <div class="s-count">42</div>
+    </li>
+    <li>
+      <a class="icon rounded s-google" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="53.9 53 81.6 80.1" enable-background="new 53.9 53 81.6 80.1"><path fill="#fff" d="M58.3 73c0 6.8 2.3 11.7 6.8 14.6 3.7 2.4 7.9 2.7 10.1 2.7h1.2s-.7 4.6 2.7 9.1h-.2c-5.9 0-25 1.2-25 17 0 16 17.6 16.8 21.1 16.8h1.1c2.3 0 8.1-.3 13.6-2.9 7.1-3.4 10.6-9.4 10.6-17.7 0-8-5.5-12.8-9.4-16.3-2.4-2.1-4.5-4-4.5-5.8s1.5-3.2 3.5-4.9C93 82.8 96 78.8 96 71.3c0-6.6-.9-11.1-6.2-13.9.6-.3 2.5-.5 3.5-.6 2.9-.4 7.1-.8 7.1-3.2V53h-21c-.2 0-21.1.8-21.1 20zm33.8 41c.4 6.4-5.1 11.1-13.3 11.8-8.4.6-15.2-3.1-15.6-9.6-.2-3.1 1.2-6.1 3.8-8.5 2.7-2.4 6.4-3.9 10.4-4.2h1.4c7.7-.1 12.9 4.5 13.3 10.5zm-5.5-45.4c2.1 7.2-1 14.8-6 16.2-.6.2-1.2.3-1.8.3-4.5 0-9-4.6-10.7-10.9-.9-3.5-.9-6.6.2-9.6 1-2.9 2.9-4.9 5.3-5.6.6-.2 1.2-.3 1.8-.3 5.5 0 9 2.3 11.2 9.9zm35.3 15.7V70.7h-8.7v13.6H99.6V93h13.6v13.6h8.7V93h13.6v-8.7h-13.6z"></path></svg></a>
+      <div class="s-count">21</div>
+    </li>
+    <li>
+      <a class="icon rounded s-email" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><g fill="#fff"><path d="M101.7 101.7l79-39.6c.9-.5 1.7-1.7 1.7-2.8V47.7c0-1-.9-1.9-1.9-1.9h-161c-1 .1-1.9 1-1.9 2.1v11.6c0 1 .8 2.3 1.7 2.8l79 39.6c.9.4 2.5.4 3.4-.2zM98.3 112.1L19.2 72.6c-.9-.5-1.7 0-1.7 1v78.6c0 1 .9 1.9 1.9 1.9h161.1c1 0 1.9-.9 1.9-1.9V73.6c0-1-.8-1.5-1.7-1L101.6 112c-.8.6-2.4.6-3.3.1z"></path></g></svg></a>
+    </li>
+  </ul> <!-- /.ss-list -->
+</div> <!-- /.social-share -->
+<div class="block block-thumb block-contributor block-in-article">
+	<a href="#" class="b-inner">
+		<div class="b-thumb">
+			<div class="img-wrap rounded"><img src="../../images/fpo_square.png" alt="Square Thumbnail"></div>
+		</div> <!-- /.b-thumb -->
+		<div class="b-text">
+			<h2 class="b-title">Cyrille Rossant <span class="icon icon-round"><svg xmlns="http://www.w3.org/2000/svg" viewBox="74 40.3 59.5 38" enable-background="new 74 40.3 59.5 38"><path fill="#fff" d="M74 63.9h34.7v14.3l24.7-18.9-24.7-19v14.4H74z"></path></svg></span></h2>
+      <div class="dek">
+        <p>Cyrille Rossant is a former student of École Normale Supérieure, where he studied mathematics and computer science. He has a PhD in neuroinformatics and is currently developing algorithms and software for analyzing large volumes of electrophysiological data for the Cortical Processing Laboratory in London.</p>
+      </div> <!-- /.dek -->
+		</div> <!-- /.b-text -->
+	</a> <!-- /.b-inner -->
+</div> <!-- /.block-contributor -->
+                <hr class="t-bkg divider">
+<div class="a-up-next">
+  <div class="g-2up">
+    <div class="gi">
+      <h3 class="subheading">Up Next</h3>
+      <h4 class="a-title"><a href="#">Avoiding the tragedy of the anticommons</a></h4>
+    </div> <!-- /.gi -->
+    <div class="gi">
+      <h3 class="subheading">Related Topics</h3>
+<div class="flag bg-velocity--before"><span>Arduino</span></div>
+<div class="flag bg-programming--before"><span>Big Data</span></div>
+    </div> <!-- /.gi -->
+  </div> <!-- /.g-2up -->
+</div> <!-- /.a-up-next -->
+            </div> <!-- /.a-meta -->
+<div class="a-recirc">
+  <ul class="block-list">
+    <li class="li-item"><div class="block block-thumb block-recirc   block-align-left  ">
+	<a href="#" class="b-inner">
+  		<div class="b-thumb">
+  			<div class="img-wrap"><img src="/images/recirc-data1.jpg" alt="4x3 Image"></div>
+  		</div> <!-- /.b-thumb -->
+		<div class="b-text">
+<div class="kicker flag flag--xsmall bg-data--before"><span>Data</span></div>
+      <div class="unify">
+  			<h2 class="b-title">Data's next steps</h2>
+      </div> <!-- /.unify -->
+		</div> <!-- /.b-text -->
+	</a> <!-- /.b-inner -->
+</div> <!-- /.block-thumb -->
+</li><li class="li-item"><div class="block block-thumb block-recirc   block-align-left  ">
+	<a href="#" class="b-inner">
+  		<div class="b-thumb">
+  			<div class="img-wrap"><img src="/images/recirc-data2.jpg" alt="4x3 Image"></div>
+  		</div> <!-- /.b-thumb -->
+		<div class="b-text">
+      <div class="unify">
+<div class="kicker flag flag--xsmall bg-data--before"><span>Data</span></div>
+  			<h2 class="b-title">Now available: Planning for Big Data</h2>
+      </div> <!-- /.unify -->
+		</div> <!-- /.b-text -->
+	</a> <!-- /.b-inner -->
+</div> <!-- /.block-thumb -->
+</li><li class="li-item"><div class="block block-thumb block-recirc   block-align-left  ">
+	<a href="#" class="b-inner">
+  		<div class="b-thumb">
+  			<div class="img-wrap"><img src="/images/recirc-data3.jpg" alt="4x3 Image"></div>
+  		</div> <!-- /.b-thumb -->
+		<div class="b-text">
+<div class="kicker flag flag--xsmall bg-data--before"><span>Data</span></div>
+      <div class="unify">
+  			<h2 class="b-title">Profile of the Data Journalist: The Data News Editor</h2>
+      </div> <!-- /.unify -->
+		</div> <!-- /.b-text -->
+	</a> <!-- /.b-inner -->
+</div> <!-- /.block-thumb -->
+</li><li class="li-item"><div class="block block-thumb block-recirc   block-align-left  ">
+	<a href="#" class="b-inner">
+  		<div class="b-thumb">
+  			<div class="img-wrap"><img src="/images/recirc-data4.jpg" alt="4x3 Image"></div>
+  		</div> <!-- /.b-thumb -->
+		<div class="b-text">
+<div class="kicker flag flag--xsmall bg-data--before"><span>Data</span></div>
+      <div class="unify">
+  			<h2 class="b-title">Big data’s big ideas</h2>
+      </div> <!-- /.unify -->
+		</div> <!-- /.b-text -->
+	</a> <!-- /.b-inner -->
+</div> <!-- /.block-thumb -->
+</li>
+  </ul> <!-- /.block-list -->
+</div> <!-- /.a-recirc -->
+          </footer> <!-- /.a-footer -->
+        </div> <!-- /.lc -->
+        <div class="page-bottom">
+<header class="a-header ">
+  <div class="lc">
+    <div class="a-inner">
+      <div class="a-text">
+<div class="flag flag--small t-bkg--before"><span>Data</span></div>
+        <h1 class="a-title t-c">Profile of the Data Journalist: The Data Editor</h1>
+        <div class="a-dek">
+          <p>Meghan Hoyer is a data editor at The Virginan Pilot in Norfolk, Virginia.</p>
+        </div> <!-- /.a-dek -->
+      </div> <!-- /.a-text -->
+      <div class="a-meta">
+<div class="byline">by <span><a href="">Alex Howard</a></span></div><time class="date" datetime="2013-04-06T12:32+00:00">March 6, 2010</time>      </div> <!-- /.a-meta -->
+    </div> <!-- /.a-inner -->
+  </div> <!-- /.lc -->
+</header> <!-- /.page-header -->
+        </div> <!-- /.page-bottom -->
+      </div> <!-- /.a-content -->
+    </article> <!-- /.article -->
+  </div> <!-- /role=main-->
+</div> <!-- /.page --></div>
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;"></div></div></body></html>
